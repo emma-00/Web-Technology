@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: rgb(194, 194, 249);
+
+        }
+
+        /* on screens that are 900px or less,set the background color to red */
+        @media screen and (max-width:900px){
+            body{
+                background-color: rgb(247, 102, 102);
+            }
+            h1{
+                font-size: 3rem;
+            }
+            #bird{
+                height: 400px;
+            }
+        }
+
+        /* onscreen that are 600px or less , set the background color to green */
+        @media screen and (max-width: 600px){
+            body{
+                background-color: rgb(154, 241, 154);
+            }
+            h1{
+                font-size: 5rem;
+            }
+            #bird{
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <p>This is a text.</p>
+    <p>this is another text.</p>
+    <img src="https://cdn.pixabay.com/photo/2024/09/19/13/31/baya-weaver-9058783_960_720.jpg" alt="" id="bird" height="600px">
+</body>
+</html>

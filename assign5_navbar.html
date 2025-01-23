@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <title>East</title>
+        <style>
+            /* Set padding, margin, and background color for the entire container */
+            #top-bar {
+                padding: 10px;
+                margin: 0;
+                background-color: rgb(88, 88, 160);
+                display: flex;
+                justify-content: space-between; /* Space out the items */
+                align-items: center; /* Vertically align the items */
+                width: 100%;
+            }
+
+            /* Style for logo */
+            #logo img {
+                height: 40px; /* Adjust size as needed */
+                width: auto;
+            }
+
+            /* Style the search bar container */
+            #search-container {
+                display: flex;
+                align-items: center;
+                background-color: rgb(255, 255, 255);
+                border-radius: 5px;
+                padding: 5px 10px;
+                width: 300px; /* Adjust width of the search bar */
+            }
+
+            /* Style the input box for search */
+            #search-container input {
+                border: none;
+                padding: 8px;
+                font-size: 14px;
+                width: 100%;
+            }
+
+            /* Style the search icon */
+            #search-container img {
+                height: 20px;
+                width: auto;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+
+            /* Style for user and cart logos */
+            .user-cart-icons img {
+                height: 30px;
+                width: auto;
+                margin-left: 20px;
+                cursor: pointer;
+            }
+
+            /* Optional: Add hover effect to logos */
+            .user-cart-icons img:hover {
+                opacity: 0.8;
+            }
+            #top li{
+                list-style-type:none;
+                margin-left: 30;
+               
+            }
+            #top li a {
+                text-decoration: none;
+                color: rgb(110, 25, 139);
+                font-style: comic sans ms;  
+            }
+            #top ul{
+                display: flex;
+                justify-content:center; /* Space out the items */
+                align-items: center; /* Vertically align the items */
+                width: 100%;
+                
+            }
+            #top{
+                text-decoration: none;
+                background-color: rgb(242, 243, 249);
+                padding: 10px;
+                display: flex;
+                justify-content: space-between; /* Space out the items */
+                align-items: center; /* Vertically align the items */
+                width: 100%;
+                margin: 0%;
+
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Top bar containing logo, search bar, and user/cart logos -->
+        <div id="top-bar">
+            <!-- Logo Section -->
+            <div id="logo">
+                <img src="east.svg" alt="Logo"> <!-- Replace with your logo source -->
+            </div>
+
+            <!-- Search Bar Section -->
+            <div id="search-container">
+                <input type="text" id="search" name="search" placeholder="Search for items...">
+                <img src="search.svg" alt="Search" /> <!-- Replace with search icon -->
+            </div>
+
+            <!-- User and Cart Logos Section -->
+            <div class="user-cart-icons">
+                <img src="person.svg" alt="User"> <!-- Replace with user icon -->
+                <img src="cart.svg" alt="Cart"> <!-- Replace with cart icon -->
+            </div>
+        </div>
+
+        <!-- Navigation bar (below the top bar) -->
+        <div id="top">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

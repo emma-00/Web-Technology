@@ -1,0 +1,11 @@
+/* #result{
+    color:red;
+} */
+
+#box{
+    height: 50px;
+    width:150px;
+    text-align: center;
+    line-height: 50px;
+    background-color: antiquewhite;
+}
