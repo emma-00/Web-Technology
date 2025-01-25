@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #csshover{
+            width:300px;
+            height:300px;
+            background-color: blueviolet;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 300px;
+            color: white;
+            margin: 200px;
+        }
+        div:hover{
+             transition: all 0.3s ease;
+             background-color: rgb(42, 165, 144);
+             /* width: 600px;
+             height: 600px; */
+             transform: scale(2.5);
+             color: rgb(225, 241, 255);
+        }
+        #jshover{
+            width:300px;
+            height:300px;
+            background-color: blueviolet;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 300px;
+            color: white;
+            margin: 200px;
+            margin-top: 300px;
+        }
+
+
+    </style>
+
+   
+
+  
+
+</head>
+<body>
+    <div id="csshover">Hover over here</div>
+
+    <div id="jshover" onmouseover="scale()">Hover over here</div>
+    <script>
+        function scale(){
+            var a=1;
+            if(a==1){
+                document.getElementById("jshover").style.scale="2.2";
+                a=0;
+            }
+            else{
+                document.getElementById("jshover").style.scale="0.5";
+                a=1;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    function clickMe(){
+    var fname=document.getElementById("first_name").value;
+    var lname=document.getElementById("last_name").value;
+    var full=fname+" "+lname;
+    // alert("Hello! "+full);
+    // alert(`Hello! ${full}`);
+    // document.getElementById("result").innerText=full;
+    var fmessage="Please enter first name"
+    var lmessage="Please enter last name"
+
+    if(fname==""){
+        document.getElementById("result").innerText=fmessage;
+    }
+     else if(lname==""){
+        document.getElementById("result").innerText=lmessage;
+    }
+    else{
+    document.getElementById("result").innerText=full;
+    }
+    }
+
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="first_name" name="first_name">
+        <input type="text" id="last_name" name="last_name">
+        <button id="btn" onclick="clickMe()">Click me to hide</button>
+        <span id="result">Enter your first and last name</span> 
+    </form>
+</body>
+</html>

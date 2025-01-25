@@ -1,122 +1,127 @@
-<html>
-    <head>
-        <title>East</title>
-        <style>
-            /* Set padding, margin, and background color for the entire container */
-            #top-bar {
-                padding: 10px;
-                margin: 0;
-                background-color: rgb(88, 88, 160);
-                display: flex;
-                justify-content: space-between; /* Space out the items */
-                align-items: center; /* Vertically align the items */
-                width: 100%;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <link rel="stylesheet"
+  href="D:\FEnd\Website_Proj\home.css">
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    
+    .form {
+      padding: 20px;
+    }
+    .form h1 {
+      color: rgb(40, 4, 131);
+    }
+    .form label {
+      display: block;
+      margin-top: 10px;
+    }
+    .form input, .form select {
+      margin-top: 5px;
+      padding: 5px;
+      width: 100%;
+    }
+    .submit button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .submit button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form action="post.txt" method="POST" enctype="multipart/form-data">
+    <div id="header">
+      <div id="navbar">
+        <a href="#">Home</a>
+        <a href="#">Product</a>
+        <a href="#">Categories</a>
+      </div>
+      <div id="register">
+        <a href="#">Register</a>
+      </div>
+    </div>
 
-            /* Style for logo */
-            #logo img {
-                height: 40px; /* Adjust size as needed */
-                width: auto;
-            }
+    <div class="form">
+      <h1>User Registration</h1>
 
-            /* Style the search bar container */
-            #search-container {
-                display: flex;
-                align-items: center;
-                background-color: rgb(255, 255, 255);
-                border-radius: 5px;
-                padding: 5px 10px;
-                width: 300px; /* Adjust width of the search bar */
-            }
+      <!-- Personal Information -->
+      <div class="section">
+        <b class="topic">Personal Info</b>
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" id="firstname">
 
-            /* Style the input box for search */
-            #search-container input {
-                border: none;
-                padding: 8px;
-                font-size: 14px;
-                width: 100%;
-            }
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" id="lastname">
 
-            /* Style the search icon */
-            #search-container img {
-                height: 20px;
-                width: auto;
-                margin-left: 5px;
-                cursor: pointer;
-            }
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob" id="dob">
 
-            /* Style for user and cart logos */
-            .user-cart-icons img {
-                height: 30px;
-                width: auto;
-                margin-left: 20px;
-                cursor: pointer;
-            }
+        <label>Select Your Gender</label>
+        <input type="radio" name="gender" value="female" id="female">
+        <label for="female">Female</label>
+        <input type="radio" name="gender" value="male" id="male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="other" id="other">
+        <label for="other">Other</label>
 
-            /* Optional: Add hover effect to logos */
-            .user-cart-icons img:hover {
-                opacity: 0.8;
-            }
-            #top li{
-                list-style-type:none;
-                margin-left: 30;
-               
-            }
-            #top li a {
-                text-decoration: none;
-                color: rgb(110, 25, 139);
-                font-style: comic sans ms;  
-            }
-            #top ul{
-                display: flex;
-                justify-content:center; /* Space out the items */
-                align-items: center; /* Vertically align the items */
-                width: 100%;
-                
-            }
-            #top{
-                text-decoration: none;
-                background-color: rgb(242, 243, 249);
-                padding: 10px;
-                display: flex;
-                justify-content: space-between; /* Space out the items */
-                align-items: center; /* Vertically align the items */
-                width: 100%;
-                margin: 0%;
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" id="phone" maxlength="10">
+      </div>
 
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Top bar containing logo, search bar, and user/cart logos -->
-        <div id="top-bar">
-            <!-- Logo Section -->
-            <div id="logo">
-                <img src="east.svg" alt="Logo"> <!-- Replace with your logo source -->
-            </div>
+      <!-- Address -->
+      <div class="section">
+        <b class="topic">Address</b>
+        <label for="country">Country</label>
+        <input type="text" name="country" id="country">
 
-            <!-- Search Bar Section -->
-            <div id="search-container">
-                <input type="text" id="search" name="search" placeholder="Search for items...">
-                <img src="search.svg" alt="Search" /> <!-- Replace with search icon -->
-            </div>
+        <label for="prov">Province</label>
+        <select name="prov" id="prov">
+          <option value="Bagmati">Bagmati</option>
+          <option value="Koshi">Koshi</option>
+          <option value="Sudur">Sudurpaschim</option>
+          <option value="Gandaki">Gandaki</option>
+          <option value="Lumbini">Lumbini</option>
+          <option value="Karnali">Karnali</option>
+          <option value="Madesh">Madesh</option>
+        </select>
 
-            <!-- User and Cart Logos Section -->
-            <div class="user-cart-icons">
-                <img src="person.svg" alt="User"> <!-- Replace with user icon -->
-                <img src="cart.svg" alt="Cart"> <!-- Replace with cart icon -->
-            </div>
-        </div>
+        <label for="cit">City</label>
+        <input type="text" name="cit" id="cit">
 
-        <!-- Navigation bar (below the top bar) -->
-        <div id="top">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Sale</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">About Us</a></li>
-            </ul>
-        </div>
-    </body>
+        <label for="addr">Street Address</label>
+        <input type="text" name="addr" id="addr">
+      </div>
+
+      <!-- Account Credentials -->
+      <div class="section">
+        <b class="topic">Account Credentials</b>
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email">
+
+        <label for="pass">Password</label>
+        <input type="password" name="pass" id="pass">
+
+        <label for="profile-pic">Profile Picture</label>
+        <input type="file" name="profile-pic" id="profile-pic">
+      </div>
+
+      <div class="submit">
+        <button type="submit" class="register">Register</button>
+      </div>
+    </div>
+  </form>
+</body>
 </html>

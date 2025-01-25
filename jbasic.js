@@ -40,26 +40,7 @@
 //             return "Invalid operation";
 //     }
 // }
-// function clickMe(){
-//     var fname=document.getElementById("first_name").value;
-//     var lname=document.getElementById("last_name").value;
-//     var full=fname+" "+lname;
-//     // alert("Hello! "+full);
-//     // alert(`Hello! ${full}`);
-//     // document.getElementById("result").innerText=full;
-//     var fmessage="Please enter first name"
-//     var lmessage="Please enter last name"
-
-//     if(fname==""){
-//         document.getElementById("result").innerText=fmessage;
-//     }
-//      else if(lname==""){
-//         document.getElementById("result").innerText=lmessage;
-//     }
-//     else{
-//     document.getElementById("result").innerText=full;
-
-//     }
+// 
 function hide() {
     var ele = document.getElementById("box");
     var btn = event.target; // The button element
