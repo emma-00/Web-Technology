@@ -16,14 +16,8 @@
             color: white;
             margin: 200px;
         }
-        div:hover{
-             transition: all 0.3s ease;
-             background-color: rgb(42, 165, 144);
-             /* width: 600px;
-             height: 600px; */
-             transform: scale(2.5);
-             color: rgb(225, 241, 255);
-        }
+        
+
         #jshover{
             width:300px;
             height:300px;
@@ -36,30 +30,84 @@
             margin-top: 300px;
         }
 
+        div:hover{
+             transition: all 0.3s ease;
+             background-color: rgb(42, 165, 144);
+             /* width: 600px;
+             height: 600px; */
+             transform: scale(2.5);
+             color: rgb(225, 241, 255);
+        }
+        @keyframes bubble-grow {
+        0% { transform: scale(1); }
+        40% { transform: scale(2.8); } /* Overshoot */
+        60% { transform: scale(2.3); } /* Bounce back */
+        100% { transform: scale(2.5); }
+    }
+    @keyframes bubble-shrink {
+        0% { transform: scale(2.5); }
+        40% { transform: scale(0.3); } /* Overshoot smaller */
+        60% { transform: scale(0.6); } /* Bounce back */
+        100% { transform: scale(0.5); }
+    }
+    /* Parent container styles */
+    .image-container {
+        position: relative;  
+        /* Enables positioning of child elements relative to this container */ 
+        width: 300px;
+        height: 200px;
+        /* overflow: hidden;  */
+    }
 
-    </style>
+    /* Image styles */
+    .image-container img {
+        width: 100%; /* Make the image fill the container */
+        height: 100%; /* Adjust image height */
+        object-fit: cover; 
+    }
 
-   
-
-  
+    /* Text overlay styles */
+    .image-container .text-overlay {
+        position: absolute; 
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); 
+        color: rgb(0, 0, 0); /* Text color */
+        font-size: 24px; /* Adjust font size */
+        font-weight: bold; /* Optional for bold text */
+        /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); */
+    }
+</style>
 
 </head>
 <body>
     <div id="csshover">Hover over here</div>
 
     <div id="jshover" onmouseover="scale()">Hover over here</div>
+
+    <div class="image-container">
+        <img src="drunk.webp" alt="Example Image">
+        <div class="text-overlay">Your Text Heredsfsd</div>
+    </div>
+
+
     <script>
-        function scale(){
-            var a=1;
-            if(a==1){
-                document.getElementById("jshover").style.scale="2.2";
-                a=0;
-            }
-            else{
-                document.getElementById("jshover").style.scale="0.5";
-                a=1;
-            }
-        }
+     let isScaled = false;
+
+function scale() {
+    const element = document.getElementById("jshover");
+    if (isScaled) {
+        element.style.animation = "bubble-grow 1s ease-out";
+
+        element.style.transform = "scale(0.5)";
+    } else {
+        element.style.animation = "bubble-shrink 1s ease-out";
+        element.style.transform = "scale(2.5)";
+    }
+    isScaled = !isScaled;
+}
+
+
     </script>
 </body>
 </html>

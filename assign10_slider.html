@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider with jQuery</title>
+    
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+       $(document).ready(function() {
+    let currentIndex = 0;
+    const slides = $(".slide");
+    const dots = $(".dot");
+    const totalSlides = slides.length;
+
+    // Show the first slide
+    $(slides[currentIndex]).addClass("active");
+    $(dots[currentIndex]).addClass("active");
+
+    // Function to show a slide
+    function showSlide(index) {
+        slides.removeClass("active");
+        dots.removeClass("active");
+        $(slides[index]).addClass("active");
+        $(dots[index]).addClass("active");
+    }
+
+    // Click event for dots
+    $(".dot").click(function() {
+        currentIndex = $(this).data("index");
+        showSlide(currentIndex);
+    });
+});
+
+
+    </script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.slider-container {
+    position: relative;
+    width: 90%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Dots Container */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Dots Style */
+.dot {
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+
+</style>
+</head>
+
+<body>
+
+    <div class="slider-container">
+        <button id="prevBtn">❮</button>
+        <div class="slider">
+            <img src="slides/1.jpg" class="slide active">
+            <img src="slides/2.jpg" class="slide">
+            <img src="slides/3.jpg" class="slide">
+            <img src="slides/4.jpg" class="slide">
+        </div>
+        <div class="dots-container">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+        </div>    </div>
+
+</body>
+</html>
