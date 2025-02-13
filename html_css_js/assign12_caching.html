@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Caching Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h1>Cached Data Example Using Cookies</h1>
+    <div id="data-container">Loading...</div>
+
+    <script>
+    $(document).ready(function() {
+        // URL of the JSONPlaceholder API (Fetching posts)
+        const apiUrl = 'https://jsonplaceholder.typicode.com/posts'; 
+        
+        // Cache expiry time (set to 0 milliseconds for immediate expiry)
+        const cacheExpiryTime = 0 * 60 * 1000; // 0 milliseconds (immediate expiration)
+        
+        // Get cached data and timestamp from cookies
+        const cachedData = getCookie('cachedData');
+        const cacheTimestamp = getCookie('cacheTimestamp');
+        
+        const currentTime = new Date().getTime();
+        
+        console.log("Current Time: ", currentTime);
+        console.log("Cache Timestamp: ", cacheTimestamp);
+        console.log("Time Difference: ", currentTime - cacheTimestamp);
+        
+        // Check if cache exists and is expired (with 0 milliseconds expiry time)
+        if (cachedData && cacheTimestamp && (currentTime - cacheTimestamp < cacheExpiryTime)) {
+            console.log('Using cached data');
+            displayData(JSON.parse(cachedData));  // Display cached JSON data
+        } else {
+            console.log('Cache expired or data not found. Fetching new data');
+            // Fetch new data if cache is expired or not found
+            $.get(apiUrl, function(data) {
+                // Cache the new data and timestamp in cookies
+                setCookie('cachedData', JSON.stringify(data), 0);  // Immediate expiration
+                setCookie('cacheTimestamp', currentTime, 0);  // Immediate expiration
+                displayData(data);  // Display the new data
+            }).fail(function() {
+                alert('Error fetching data.');
+            });
+        }
+
+        // Function to display the data in the #data-container div
+        function displayData(data) {
+            // Convert the data to a formatted string and display it in the div
+            let displayHtml = '<ul>';
+            data.forEach(item => {
+                displayHtml += ` 
+                    <li>
+                        <strong>Title:</strong> ${item.title}<br>
+                        <strong>Body:</strong> ${item.body}
+                    </li>
+                `;
+            });
+            displayHtml += '</ul>';
+            
+            // Insert the HTML content into the div
+            $('#data-container').html(displayHtml);
+        }
+
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(name + '=')) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        // Function to set a cookie with a specific name, value, and expiration time in days
+        function setCookie(name, value, days) {
+            const expires = days ? "; expires=" + new Date(Date.now() + days * 864e5).toUTCString() : "; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+    });
+    </script>
+
+</body>
+</html>
+
